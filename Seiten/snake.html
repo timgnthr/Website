@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <link href="../Styles/snake.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="snake.html"> JS-Snake</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../start.html">Home</a></li>
+                <li><a href="../Seiten/about.html">Über mich</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <canvas id="gameCanvas" width="650" height="700"></canvas>
+    <div id="gameOverScreen" class="hidden">
+        <h1>Game Over</h1>
+        <p>Dein Score: <span id="score">0</span></p>
+        <button id="neustart">Nochmal spielen</button>
+    </div>    
+    <script src="../Scripts/snake.js"></script>
+    <footer>@MadeByTim</footer>
+</body>
+
+</html>

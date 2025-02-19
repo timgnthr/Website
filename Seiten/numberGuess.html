@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/numberGuess.css">
+    <title>Number Guesser</title>
+
+</head>
+
+<body>
+    <header>
+        <h1><a href="numberGuess.html">Number Guesser</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../start.html">Home</a></li>
+                <li><a href="../Seiten/about.html">Über mich</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class="inhalt">
+        <h2 id="anweisung">Rate eine Zahl!</h2>
+        <h3 id="versuche">Versuche: 0</h3>
+        <form onsubmit="guessNum(); return false">
+            <input id="input" type="number" required placeholder="Bitte Zahl zwischen 1-100 eingeben!" min="1" max="100">
+            <button>Raten</button>
+        </form>
+        <p id="letzter">Letzter Versuch: /</p>
+    </div>
+
+    <script src="../Scripts/numberGuess.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <footer>@MadeByTim</footer>
+</body>
+
+</html>
