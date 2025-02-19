@@ -74,13 +74,20 @@ input {
 }
 
 footer{
-    align-items: center;
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    color: aliceblue;
-    background-color: #333333;
     bottom: 0;
-    position: fixed;
     width: 100%;
-    padding: 15px 20px;
+    background-color: #333333;
+    color: white;
+    padding: 10px 10px;
+}
+footer a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+footer a:hover{
+    text-decoration: underline;
 }

@@ -38,11 +38,26 @@ nav ul li a:hover{
 }
 
 body{
-    display: flex;
+
     margin: 0;
     margin-top: 90px;
     background-color: rgba(15, 15, 135, 0.653);
 }
+.Inhalt h2{
+    font-size: 50px;
+}
+.Inhalt p{
+    padding-top: 0;
+    line-height: 4px;
+}
+.Inhalt{
+    margin-left: 10px;
+}
+
+.Kontakt p{
+    padding: 0%;
+}
+
 footer{
     position: fixed;
     display: flex;
@@ -60,48 +75,4 @@ footer a{
 }
 footer a:hover{
     text-decoration: underline;
-}
-
-.grid-container {
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
-    grid-template-rows: repeat(2, 1fr); /* 2 Reihen */
-    gap: 20px; /* Abstand zwischen den Kacheln */
-    margin: auto;
-}
-
-.kachel {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    display: block;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-.kachel:hover {
-    transform: scale(1.05);
-}
-.kachel:active {
-    transform: scale(0.95);
-}
-.kachel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
 }
