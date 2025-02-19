@@ -14,11 +14,12 @@ let direction = "right";
 let nextDirection = "right";
 
 let food = { x: 300, y: 90 };
-let lastPosition = { x: 100, y: 40 }; // Vorherige Position des Kopfes
+let lastPositions = []; // Vorherige Position des Kopfes
 let smoothFactor = 0; // Wert für flüssige Bewegung
 
 let gameOverScreen = document.getElementById("gameOverScreen");
 let restartButton = document.getElementById("neustart");
+
 
 
 // Verhindere das Scrollen der Seite mit den Pfeiltasten
@@ -30,21 +31,32 @@ document.addEventListener("keydown", function (event) {
 
 // Ändere die Richtung des Schlangenkopfes
 document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowUp" && direction !== "down") nextDirection = "up";
-    if (event.key === "ArrowDown" && direction !== "up") nextDirection = "down";
-    if (event.key === "ArrowRight" && direction !== "left") nextDirection = "right";
-    if (event.key === "ArrowLeft" && direction !== "right") nextDirection = "left";
+    if (event.key === "ArrowUp" && direction !== "down" || event.key === "w" && direction !== "down") nextDirection = "up";
+    if (event.key === "ArrowDown" && direction !== "up" || event.key === "s" && direction !== "up") nextDirection = "down";
+    if (event.key === "ArrowRight" && direction !== "left" || event.key === "d" && direction !== "left") nextDirection = "right";
+    if (event.key === "ArrowLeft" && direction !== "right" || event.key === "a" && direction !== "right") nextDirection = "left";
 });
 
 function foodSpawn() {
-    food.x = Math.floor(Math.random() * 10) * tileSize + 100;
-    food.y = Math.floor(Math.random() * 10) * tileSize + 40;
+    let validPosition = false;
+    while (!validPosition) {
+        food.x = Math.floor(Math.random() * 10) * tileSize + 100;
+        food.y = Math.floor(Math.random() * 10) * tileSize + 40;
+
+        validPosition = !isFoodOnSnake(food.x, food.y);
+    }
+}
+function isFoodOnSnake(foodX, foodY) {
+    return snake.some(segment => segment.x === foodX && segment.y === foodY);
 }
 
 function moveSnake() {
     if (!Alive) return;
 
-    lastPosition = { ...snake[0] };
+    lastPositions.unshift([...snake.map(segment => ({ ...segment }))]);
+    if (lastPositions.length > snake.length) {
+        lastPositions.pop();
+    }
 
     direction = nextDirection;
 
@@ -90,28 +102,26 @@ function drawSnake(smoothFactor) {
 
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = "green";
-        let prev = snake[i + 1] || snake[i]; // Vorheriges Segment (zum Weichzeichnen)
-        let x, y;
+        for (let i = 0; i < snake.length; i++) {
+            let x = snake[i].x;
+            let y = snake[i].y;
 
-        if (i === 0) {
-            // Interpolation des Kopfes zwischen der alten und neuen Position
-            ctx.fillStyle = "#00ff00";
-            x = lastPosition.x + (snake[0].x - lastPosition.x) * smoothFactor;
-            y = lastPosition.y + (snake[0].y - lastPosition.y) * smoothFactor;
-        } else {
-            // Interpolation der anderen Segmente
-            x = prev.x + (snake[i].x - prev.x) * smoothFactor;
-            y = prev.y + (snake[i].y - prev.y) * smoothFactor;
-        }
+            if (lastPositions.length > 0 && lastPositions[0][i]) {
+                let prevX = lastPositions[0][i].x;
+                let prevY = lastPositions[0][i].y;
+                x = prevX + (snake[i].x - prevX) * smoothFactor;
+                y = prevY + (snake[i].y - prevY) * smoothFactor;
+            }
 
-        ctx.fillRect(x, y, tileSize, tileSize);
-        if (i === 0) {
-            drawSnakeFace(x, y);
+            ctx.fillStyle = i === 0 ? "#00ff00" : "green"; // Kopf heller färben
+            ctx.fillRect(x, y, tileSize, tileSize);
+
+            if (i === 0) {
+                drawSnakeFace(x, y);
+            }
         }
     }
 }
-
 
 function drawSnakeFace(a, b) {
     if (direction === "up") {

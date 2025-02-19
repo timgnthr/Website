@@ -57,11 +57,56 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 10;
+
+}
+#gameOverScreen h1 {
+    margin: 0;
+    font-size: 50px;
+    text-align: center;
+}
+#gameOverScreen p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 .hidden{
     display: none;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;  /* Sorgt für zentrierte Buttons */
+    gap: 15px;  /* Abstand zwischen den Buttons */
+}
+
+.button-container button {
+    background: #ff4500;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    width: 80%;  /* Buttons nehmen 80% der Box ein */
+    max-width: 200px;  /* Maximalgröße */
+    text-align: center;
+}
+
+.button-container button:hover {
+    background: #ff6347;
+}
+
+.button-container button:active {
+    transform: scale(0.95);
+}
+
+#exitButton a{
+    text-decoration: none;
+    color: white;
+} 
+
 footer{
     position: fixed;
     left: 0;
