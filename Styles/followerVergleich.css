@@ -1,3 +1,14 @@
+body{
+  position: relative;
+  height: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  margin-top: 100px;
+  background-color: rgba(15, 15, 135, 0.653);
+}
+
 header{
     align-items: center;
     display: flex;
@@ -38,16 +49,7 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
-body{
-    position: relative;
-    height: 100%;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    margin-top: 100px;
-    background-color: rgba(15, 15, 135, 0.653);
-}
+
 .hülle{
     display: flex;
     flex-direction: column;
@@ -58,24 +60,7 @@ body{
 .inhalt{
     flex: 1;
 }
-footer{
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  bottom: 0;
-  width: 100%;
-  background-color: #333333;
-  color: white;
-  padding: 10px 10px;
-}
-footer a{
-  margin-right: 20px;
-  text-decoration: none;
-  color: white;
-}
-footer a:hover{
-  text-decoration: underline;
-}
+
 
 #body_h1{
     top: 10px;
@@ -174,4 +159,23 @@ footer a:hover{
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+footer{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  padding: 10px 10px;
+}
+footer a{
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+}
+footer a:hover{
+  text-decoration: underline;
 }
