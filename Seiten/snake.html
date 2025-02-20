@@ -19,16 +19,18 @@
             </ul>
         </nav>
     </header>
-    <canvas id="gameCanvas" width="650" height="700"></canvas>
-    <div id="gameOverScreen" class="hidden">
-        <h1>Game Over</h1>
-        <p>Dein Score: <span id="score">0</span></p>
-        <div class="button-container">
-            <button id="neustart">Nochmal spielen</button>
-            <button id="exitButton"><a href="../start.html">Beenden</a></button>
+    <div id="game">
+        <canvas id="gameCanvas" width="650" height="700"></canvas>
+        <div id="gameOverScreen" class="hidden">
+            <h1>Game Over</h1>
+            <p>Dein Score: <span id="score">0</span></p>
+            <div class="button-container">
+                <button id="neustart">Nochmal spielen</button>
+                <button id="exitButton"><a href="../start.html">Beenden</a></button>
+            </div>
         </div>
+        <script src="../Scripts/snake.js"></script>
     </div>
-    <script src="../Scripts/snake.js"></script>
     <footer>
         <span>© 2025 MadeByTim</span>
         <span><a href="../Seiten/impressum.html">Impressum</a></span>
