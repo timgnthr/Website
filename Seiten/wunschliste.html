@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Wunschliste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/wunschliste.css">
+</head>
+<body>
+    <header>
+        <h1><a href="wunschliste.html">Wunschliste</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../start.html">Home</a></li>
+                <li><a href="about.html">Über mich</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="inhalt">
+        <h2>🎁 Meine Wunschliste</h2>
+        <div class="form-row">
+            <input id="itemName" type="text" placeholder="Name des Artikels" />
+            <input id="itemPrice" type="number" placeholder="Preis (€)" step="0.01" />
+            <button onclick="addItem()">Hinzufügen</button>
+        </div>
+        
+        <ul id="wishlist"></ul>
+        <div class="total">Gesamtsumme: <span id="total">0.00</span> €</div>
+    </div>
+
+    <script src="../Scripts/wunschliste.js"></script>
+
+    <footer>
+        <span>© 2025 MadeByTim</span>
+        <span><a href="impressum.html">Impressum</a></span>
+    </footer>
+</body>
+</html>
